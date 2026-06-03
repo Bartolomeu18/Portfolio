@@ -1,6 +1,6 @@
 import thewinners from "../../assets/Thewinners.png";
 import pedropitagoras from "../../assets/pedropitagoras.png";
-import DDkmotos from "../../assets/DDK-motos.png";
+import DDkmotos from "../../assets/DDk-motos.png";
 //icons
 import { FaGithub } from "react-icons/fa";
 
