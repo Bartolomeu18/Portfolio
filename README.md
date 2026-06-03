@@ -1,16 +1,80 @@
-# React + Vite
+# Portfólio - Bartolomeu
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Preview do Portfólio](src/assets/portimg.png)
 
-Currently, two official plugins are available:
+Bem-vindo ao meu portfólio pessoal criado com React, Vite e Tailwind CSS.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Este projeto apresenta meus trabalhos, habilidades técnicas e formas de contato de forma elegante, rápida e responsiva.
 
-## React Compiler
+## 🚀 Visão geral
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Framework:** React + Vite
+- **Estilização:** Tailwind CSS
+- **Componentes modernos:** Navbar fixa, hero com CTA, cards de projetos, barra de skills e formulário de contato
+- **Seções principais:** Home, Sobre, Skills, Projetos e Contato
+- **Portfólio direcionado a:** empresas e clientes que buscam desenvolvimento web front-end e fullstack
 
-## Expanding the ESLint configuration
+## 💡 O que você encontra aqui
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Hero chamativo:** apresentação pessoal com chamada para ação para ver projetos ou entrar em contato
+- **Sobre mim:** experiência em desenvolvimento web com foco em performance, design e usabilidade
+- **Skills:** principais tecnologias utilizadas, como React, JavaScript, Tailwind CSS, PHP, Laravel, MySQL e GitHub
+- **Projetos reais:** exemplos de sites institucionais e sistemas com repositórios disponíveis no GitHub
+- **Contato:** formulário funcional e links diretos para e-mail, LinkedIn e GitHub
+
+## 🛠️ Tecnologias utilizadas
+
+- React
+- Vite
+- Tailwind CSS
+- React Icons
+- Font Awesome
+- PHP / Laravel
+- MySQL
+
+## 📁 Projetos em destaque
+
+O portfólio exibe projetos com descrição, tecnologias usadas e link para o repositório no GitHub.
+
+Alguns exemplos:
+
+- **Consultório Winners** – site institucional para consultório contábil
+- **Colégio Pedro Pitágoras** – site institucional para escola
+- **DDK Motos** – sistema de gestão de veículos e motoqueiros
+
+## ⚙️ Como executar localmente
+
+1. Instale as dependências:
+
+```bash
+npm install
+```
+
+2. Execute em modo de desenvolvimento:
+
+```bash
+npm run dev
+```
+
+3. Abra o navegador em:
+
+```bash
+http://localhost:5173
+```
+
+## 📬 Contato
+
+- **E-mail:** `bartolomeunhongo@gmail.com`
+- **LinkedIn:** [perfil](https://www.linkedin.com/in/bartolomeu-sebasti%C3%A3o-33a91b2b2)
+- **GitHub:** [bartolomeu18](https://github.com/bartolomeu18)
+
+## ✨ Destaques do portfólio
+
+- Design responsivo e moderno
+- Experiência em front-end e back-end
+- Foco em performance e usabilidade
+- Código limpo com componentes reutilizáveis
+
+---
+
+Feito com paixão por desenvolvimento e atenção aos detalhes.

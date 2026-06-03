@@ -1,4 +1,4 @@
-import thewinners from "../../assets/thewinners.png";
+import thewinners from "../../assets/Thewinners.png";
 import pedropitagoras from "../../assets/pedropitagoras.png";
 import DDkmotos from "../../assets/DDK-motos.png";
 //icons
