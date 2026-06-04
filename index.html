@@ -6,9 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
     <title>meu-portifolio</title>
+    <style>
+      body, html {
+        margin: 0;
+        min-height: 100%;
+      }
+      #root {
+        visibility: hidden;
+      }
+      body.loaded #root {
+        visibility: visible;
+      }
+      #loader {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #020617 0%, #0F172A 50%, #1a1f35 100%);
+        z-index: 9999;
+      }
+      #loader .spinner {
+        width: 3rem;
+        height: 3rem;
+        border: 4px solid rgba(255, 255, 255, 0.18);
+        border-top-color: #3b82f6;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </head>
   <body>
+    <div id="loader">
+      <div class="spinner"></div>
+    </div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script type="module">
+      if (import.meta.env.PROD) {
+        window.addEventListener('load', () => {
+          document.body.classList.add('loaded');
+          const loaderElement = document.getElementById('loader');
+          if (loaderElement) loaderElement.remove();
+        });
+      } else {
+        document.body.classList.add('loaded');
+        const loaderElement = document.getElementById('loader');
+        if (loaderElement) loaderElement.remove();
+      }
+    </script>
   </body>
 </html>
