@@ -10,7 +10,7 @@ const PROJECTS = [
     desc: "Site Institucional para consultório contablistico da Empresa The Winners Consultorio",
     icon: { src: thewinners, alt: "The Winners Consultorio" },
     color: "from-blue-500 to-cyan-400",
-    github: "https://github.com/Bartolomeu18/thewinners-consultorio",
+    github: "https://github.com/Bartolomeu18/the-winners-consultorio",
     tech: ["PHP", "Tailwind css"],
   },
   {

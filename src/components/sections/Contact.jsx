@@ -1,30 +1,81 @@
 import { useState } from "react";
-//icons
 import { FaLinkedinIn } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import { FaGithub } from "react-icons/fa";
+import Swal from "sweetalert2";
+import "sweetalert2/dist/sweetalert2.min.css";
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aqui você pode adicionar a lógica de envio do formulário
-    console.log("Formulário enviado:", formData);
-    alert("Obrigado pela mensagem! Responderei em breve.");
-    setFormData({ name: "", email: "", message: "" });
+    setLoading(true);
+
+    const form = e.target;
+    const data = new FormData(form);
+
+    try {
+      await fetch("https://formsubmit.co/ajax/bartolomeunhongo@gmail.com", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: data,
+      });
+
+      Swal.fire({
+        title: "Mensagem enviada!",
+        text: "Obrigado pelo contacto. Responderei em breve 🚀",
+        icon: "success",
+        confirmButtonText: "Fechar",
+        buttonsStyling: false,
+        customClass: {
+          popup: "rounded-[28px] border border-accent/20 bg-[#020617] text-white shadow-2xl shadow-accent/10",
+          title: "font-display text-3xl font-extrabold text-white",
+          content: "text-muted text-base mt-3",
+          confirmButton: "bg-gradient-to-r from-accent to-blue-500 text-white rounded-2xl px-6 py-3 mt-6 hover:opacity-90 transition-all duration-200",
+        },
+        background: "transparent",
+        color: "#F1F5F9",
+        iconColor: "#3B82F6",
+        showClass: {
+          popup: "swal2-show",
+        },
+      });
+
+      setFormData({ name: "", email: "", message: "" });
+    } catch {
+      Swal.fire({
+        title: "Erro ao enviar",
+        text: "Algo correu mal. Tenta novamente ou contacta diretamente por email.",
+        icon: "error",
+        confirmButtonText: "Fechar",
+        buttonsStyling: false,
+        customClass: {
+          popup: "rounded-[28px] border border-red-500/20 bg-[#020617] text-white shadow-2xl shadow-red-500/10",
+          title: "font-display text-3xl font-extrabold text-white",
+          content: "text-muted text-base mt-3",
+          confirmButton: "bg-red-500 text-white rounded-2xl px-6 py-3 mt-6 hover:opacity-90 transition-all duration-200",
+        },
+        background: "transparent",
+        color: "#F1F5F9",
+        iconColor: "#ef4444",
+        showClass: {
+          popup: "swal2-show",
+        },
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <section id="contato" className="py-32 px-6 md:px-[6%] bg-gradient-to-b from-bg to-[#0F172A] relative overflow-hidden">
-      {/* Decorative elements */}
+
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
       <div className="absolute top-20 left-1/4 w-80 h-80 bg-blue-600/5 rounded-full blur-3xl" />
 
@@ -39,6 +90,12 @@ export default function Contact() {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-5">
+
+          {/* Campos hidden do FormSubmit */}
+          <input type="hidden" name="_subject" value="Nova mensagem do portfólio!" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="_honey" className="hidden" />
+
           <div>
             <input
               type="text"
@@ -77,46 +134,30 @@ export default function Contact() {
 
           <button
             type="submit"
-            className="w-full bg-gradient-to-r from-accent to-blue-500 text-white font-bold py-3 rounded-lg hover:shadow-glowLg transition-all duration-300 hover:-translate-y-1 uppercase tracking-wider text-sm"
+            disabled={loading}
+            className="w-full bg-gradient-to-r from-accent to-blue-500 text-white font-bold py-3 rounded-lg hover:shadow-glowLg transition-all duration-300 hover:-translate-y-1 uppercase tracking-wider text-sm disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0"
           >
-            Enviar Mensagem
+            {loading ? "A enviar..." : "Enviar Mensagem"}
           </button>
         </form>
 
-<div className="mt-12 grid md:grid-cols-3 gap-6 pt-8 ">
-  
-  <div className="flex justify-center">
-    <a
-      href="mailto:bartolomeunhongo@gmail.com"
-      className="text-accent text-3xl hover:text-accent transition-colors duration-300"
-    >
-      <SiGmail />
-    </a>
-  </div>
-
-  <div className="flex justify-center">
-    <a
-      href="https://www.linkedin.com/in/bartolomeu-sebastião-33a91b2b2"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-accent text-3xl hover:text-accent transition-colors duration-300"
-    >
-      <FaLinkedinIn />
-    </a>
-  </div>
-
-  <div className="flex justify-center">
-    <a
-      href="https://github.com/bartolomeu18"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-accent text-3xl hover:text-accent transition-colors duration-300"
-    >
-      <FaGithub />
-    </a>
-  </div>
-
-</div>
+        <div className="mt-12 grid md:grid-cols-3 gap-6 pt-8">
+          <div className="flex justify-center">
+            <a href="mailto:bartolomeunhongo@gmail.com" className="text-accent text-3xl hover:opacity-70 transition-colors duration-300">
+              <SiGmail />
+            </a>
+          </div>
+          <div className="flex justify-center">
+            <a href="https://www.linkedin.com/in/bartolomeu-sebastião-33a91b2b2" target="_blank" rel="noopener noreferrer" className="text-accent text-3xl hover:opacity-70 transition-colors duration-300">
+              <FaLinkedinIn />
+            </a>
+          </div>
+          <div className="flex justify-center">
+            <a href="https://github.com/bartolomeu18" target="_blank" rel="noopener noreferrer" className="text-accent text-3xl hover:opacity-70 transition-colors duration-300">
+              <FaGithub />
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );
