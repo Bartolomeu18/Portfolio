@@ -1,6 +1,7 @@
 import thewinners from "../../assets/Thewinners.png";
 import pedropitagoras from "../../assets/pedropitagoras.png";
 import DDkmotos from "../../assets/DDk-motos.png";
+import wizendaadmin from "../../assets/wizendaDash.png";
 //icons
 import { FaGithub } from "react-icons/fa";
 
@@ -21,6 +22,14 @@ const PROJECTS = [
     github: "https://github.com/Bartolomeu18/SitePedroPitagoras-",
     tech: ["Html", "css", "JavaScript", "Bootstrap"],
   },
+  {
+  title: "Wizenda Admin",
+  desc: "Painel administrativo desenvolvido em React para gestão de utilizadores, empresas e visualização de dados em tempo real, com autenticação, dashboards e interface responsiva.",
+  icon: { src: wizendaadmin, alt: "Wizenda Admin" },
+  color: "from-indigo-500 to-sky-500",
+  github: "https://github.com/Bartolomeu18/wizenda-admin", // ou remova se for privado
+  tech: ["React", "Vite", "Tailwind CSS", "Chart.js"],
+},
   {
     title: "DDk-Motos",
     desc: "Desenvolvi um sistema de gestão de motorizadas que ajuda a manter o controle das motorizadas e dos motoqueiros. f",
