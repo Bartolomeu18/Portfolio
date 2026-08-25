@@ -1,4 +1,4 @@
-import bartolomeu from "../../assets/profissional.png";
+import bartolomeu from "../../assets/Profissional.jpeg";
 //icons
 import { IoIosSpeedometer } from "react-icons/io";
 import { FaPaintBrush } from "react-icons/fa";
@@ -58,7 +58,7 @@ export default function About() {
             <img
               src={bartolomeu}
               alt="Bartolomeu"
-              className="w-full max-w-sm mx-auto  object-cover "
+              className="w-full max-w-sm mx-auto  object-cover rounded-3xl "
             />
           </div>
         </div>
